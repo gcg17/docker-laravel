@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Cliente\CitaController;
-use App\Http\Controllers\Cliente\TallerCitaController;
+use App\Http\Controllers\Cliente\CitaController as ClienteCitaController;
+use App\Http\Controllers\Taller\CitaController as TallerCitaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,9 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-/*Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     
-    Controlador de citas cliente
+    #Controlador de citas cliente
     Route::middleware('role:cliente')->prefix('cliente')->name('cliente.')->group(function () {
         Route::get('citas', [ClienteCitaController::class, 'index'])->name('citas.index');
         Route::get('citas/create', [ClienteCitaController::class, 'create'])->name('citas.create');
@@ -37,6 +37,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('citas/{cita}', [TallerCitaController::class, 'destroy'])->name('citas.destroy');
     });
 
-});*/
+});
 
 require __DIR__.'/auth.php';

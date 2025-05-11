@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Cita;
 use App\Models\User;
 
@@ -11,7 +12,7 @@ class CitaController extends Controller
 {
     public function index()
 {
-    $citas = auth()->user()->citas;
+    $citas = Auth::user() -> citas;
     return view('cliente.citas.index', compact('citas'));
 }
 
@@ -27,8 +28,14 @@ public function store(Request $request)
         'modelo' => 'required',
         'matricula' => 'required',
     ]);
-
-    auth()->user()->citas()->create($request->only('marca', 'modelo', 'matricula'));
+    
+    #Crear una nueva instancia de la clase Cita
+    $cita = new \App\Models\Cita();
+    $cita->marca = $request->input('marca');
+    $cita->modelo = $request->input('modelo');
+    $cita->matricula = $request->input('matricula');
+    $cita->user_id = Auth::user()-> id;
+    $cita->save();
 
     return redirect()->route('cliente.citas.index')->with('success', 'Cita solicitada correctamente.');
 }

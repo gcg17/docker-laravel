@@ -19,9 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth'])->group(function () {
+/*Route::middleware(['auth'])->group(function () {
     
-    /*Controlador de citas cliente
+    Controlador de citas cliente
     Route::middleware('role:cliente')->prefix('cliente')->name('cliente.')->group(function () {
         Route::get('citas', [ClienteCitaController::class, 'index'])->name('citas.index');
         Route::get('citas/create', [ClienteCitaController::class, 'create'])->name('citas.create');

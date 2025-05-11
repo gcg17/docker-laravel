@@ -23,14 +23,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->group(function () {
     
     #Controlador de citas cliente
-    Route::middleware([CheckRole::class . 'cliente'])->prefix('cliente')->name('cliente.')->group(function () {
+    Route::middleware([CheckRole::class . ':cliente']) ->group(function () {
         Route::get('citas', [ClienteCitaController::class, 'index'])->name('citas.index');
         Route::get('citas/create', [ClienteCitaController::class, 'create'])->name('citas.create');
         Route::post('citas', [ClienteCitaController::class, 'store'])->name('citas.store');
     });
 
     #Controlador de citas taller
-    Route::middleware([CheckRole::class . 'taller'])->prefix('taller')->name('taller.')->group(function () {
+    Route::middleware([CheckRole::class . ':taller'])-> group(function () {
         Route::get('citas', [TallerCitaController::class, 'index'])->name('citas.index');
         Route::get('citas/{cita}', [TallerCitaController::class, 'show'])->name('citas.show');
         Route::get('citas/{cita}/edit', [TallerCitaController::class, 'edit'])->name('citas.edit');

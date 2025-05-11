@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\http\Middleware\CheckRole;
+use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\Cliente\CitaController as ClienteCitaController;
 use App\Http\Controllers\Taller\CitaController as TallerCitaController;
 

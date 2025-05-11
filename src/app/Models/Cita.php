@@ -15,10 +15,14 @@ class Cita extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
+        'user_id',
         'marca',
         'modelo',
         'matricula',
-        'user_id',
+        'fecha',
+        'hora',
+        'duracion_estimada',
     ];
     
     /**
@@ -26,6 +30,6 @@ class Cita extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -9,6 +9,7 @@
         <li>{{ $cita->marca }} - {{ $cita->modelo }} ({{ $cita->matricula }})</li>
     @endforeach
     </ul>
+    @endif
 
     <a href="{{ route('cliente.citas.create') }}">Solicitar nueva cita</a>
 </x-app-layout>

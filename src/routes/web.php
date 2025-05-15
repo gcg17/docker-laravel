@@ -25,8 +25,9 @@ Route::middleware(['auth', CheckRole::class . ':cliente'])
     ->prefix('cliente')
     ->name('cliente.')
     ->group(function () {
+        Route::get('/citas', [ClienteCitaController::class, 'index'])->name('citas.index');
         Route::get('/citas/create', [ClienteCitaController::class, 'create'])->name('citas.create');
-        Route::get('/citas', [ClienteCitaController::class, 'store'])->name('citas.store');
+        Route::post('/citas', [ClienteCitaController::class, 'store'])->name('citas.store');
     });
 
 #Rutas para el taller

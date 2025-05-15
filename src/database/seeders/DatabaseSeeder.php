@@ -13,13 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        #seeder por defecto sirve para crear usuarios con nombre e email
-
-        #User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Call the UserSeeder instead of creating users directly
+        $this->call([
+            UserSeeder::class,
         ]);
+        
+        // If you still want to create this test user, use firstOrCreate to avoid duplicates
+        // User::firstOrCreate(
+        //     ['email' => 'test@example.com'],
+        //     [
+        //         'name' => 'Test User',
+        //         'password' => bcrypt('password')
+        //     ]
+        // );
     }
 }

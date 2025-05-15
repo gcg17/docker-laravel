@@ -11,7 +11,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         #Usuario taller
-        User::create([
+        User::factory () -> create([
             'name' => 'Admin Taller',
             'email' => 'taller@test.com',
             'password' => Hash::make('password'),
@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         ]);
 
         #Usuario cliente
-        User::create([
+        User::factory()->create([
             'name' => 'Juan Cliente',
             'email' => 'cliente1@test.com',
             'password' => Hash::make('password'),
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         ]);
 
         #Otro cliente
-        User::create([
+        User::factory()->create([
             'name' => 'Ana Cliente',
             'email' => 'cliente2@test.com',
             'password' => Hash::make('password'),

@@ -14,7 +14,7 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $rol): Response
+    public function handle(Request $request, Closure $next, $role): Response
     {
         #Verificar si el usuario está autenticado
         if (!Auth::check()) {
@@ -22,7 +22,7 @@ class CheckRole
         }
         
         #Verificar si el usuario tiene el rol requerido
-        if (Auth::user()->role !== $rol) {
+        if (Auth::user()->role !== $role) {
             abort(403, 'Acceso denegado');
         }
         

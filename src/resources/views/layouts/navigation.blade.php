@@ -13,14 +13,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     
-                    #Verificamos si el usuario es taller
+                    <!--Verificamos si el usuario es taller-->
                     @if (Auth::user()->rol === 'taller')
                     <!-- Ver citas pendientes del taller -->
                     <x-nav-link :href="route('taller.citas.index')" :active="request()->routeIs('taller.citas.index')">
+                    </x-nav-link>
                     <!--Crear nueva cita desde el Taller-->
                     <x-nav-link :href="route('taller.citas.create')" :active="request()->routeIs('taller.citas.create')" class="inline-block px-6 py-2 text-lg font-semibold bg-blue-500 text-white rounded-lg transition duration-200 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    
-                    #Verificamos si el usuario es cliente
+                    </x-nav-link>
+
+                    <!--Verificamos si el usuario es cliente-->
                     @elseif (Auth::user()->rol === 'cliente')
                     <!-- Solicitar nueva cita si el usuario es cliente -->
                      <x-nav-link :href="route('cliente.citas.create')" :active="request()->routeIs('cliente.citas.create')" class="inline-block px-6 py-2 text-lg font-semibold bg-blue-500 text-white rounded-lg transition duration-200 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">

@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="container mx-auto py-4">
-        <!-- Verifica si hay citas -->
+        <!-- Verifica las citas pendientes y su estado-->
         @if ($citas->isEmpty())
             <p class="text-center text-gray-600 my-6">No hay citas pendientes</p>
         @else

@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="">
+                    <a href="{{ Auth::user()->rol === 'taller' ? route('taller.citas.index') : route('cliente.citas.index') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
@@ -16,7 +16,7 @@
                     #Verificamos si el usuario es taller
                     @if (Auth::user()->rol === 'taller')
                     <!-- Ver citas pendientes del taller -->
-                    <x-nav-link :href="route('taller'.citas.index')" :active="request()->routeIs('taller.citas.index')">
+                    <x-nav-link :href="route('taller.citas.index')" :active="request()->routeIs('taller.citas.index')">
                     <!--Crear nueva cita desde el Taller-->
                     <x-nav-link :href="route('taller.citas.create')" :active="request()->routeIs('taller.citas.create')" class="inline-block px-6 py-2 text-lg font-semibold bg-blue-500 text-white rounded-lg transition duration-200 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     
@@ -31,7 +31,7 @@
                         Ver citas pendientes 
                     </x-nav-link>
                     @endif
-                    
+
                 </div>
             </div>
 

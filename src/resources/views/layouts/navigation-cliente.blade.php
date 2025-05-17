@@ -4,7 +4,7 @@
     {{-- agrupación de funcionalidades juntas --}}
     <div class="flex flex-col space-y-1">
         <x-nav-link :href="route('cliente.citas.index')" :active="request()->routeIs('cliente.citas.index')">
-            Ver citas pendientes
+            Mis citas
         </x-nav-link>
 
         <x-nav-link :href="route('cliente.citas.create')" :active="request()->routeIs('cliente.citas.create')">

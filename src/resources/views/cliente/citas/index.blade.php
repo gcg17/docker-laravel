@@ -1,7 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        Mis citas
-    </x-slot>
 
     <div class="container mx-auto py-4">
         <!-- Verifica si el usuario tiene citas -->

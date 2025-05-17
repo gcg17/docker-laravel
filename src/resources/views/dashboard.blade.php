@@ -27,8 +27,13 @@
                             ¡Bienvenido al panel del taller! Aquí puedes gestionar los vehículos en reparación, ver citas programadas y actualizar el estado de los trabajos.
                         </p>
                     @elseif ($user->role === 'cliente')
+                        
+                        <h1 class="text-lg font-medium mb-2">
+                            ¡Hola {{ $user->name }}! 👋 
+                        </h1>
+                        <br>
                         <p class="text-gray-700">
-                            ¡Hola {{ $user->name }}! Aquí puedes consultar el estado de tu vehículo, ver tus citas y ponerte en contacto con el taller.
+                            Aquí puedes consultar el estado de tu vehículo, ver tus citas y ponerte en contacto con el taller.
                         </p>
                     @endif
                 </div>

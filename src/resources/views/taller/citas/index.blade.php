@@ -1,8 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        Gestión de citas
-    </x-slot>
-
+    
     <div class="container mx-auto py-4">
         <!-- Verifica las citas pendientes y su estado-->
         @if ($citas->isEmpty())

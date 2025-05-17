@@ -11,9 +11,9 @@ use App\Models\User;
 
 class CitaController extends Controller
 {
-    public function index()
+public function index()
 {
-    $citas = Cita::all();
+    $citas = Cita::paginate(10);
     return view('taller.citas.index', compact('citas'));
 }
 

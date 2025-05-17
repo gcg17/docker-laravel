@@ -19,7 +19,10 @@ class Cita extends Model
         'user_id',
         'marca',
         'modelo',
-        'matricula'
+        'matricula',
+        'fecha',
+        'hora',
+        'duracion_estimada'
     ];
     
     /**

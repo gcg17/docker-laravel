@@ -14,7 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="flex flex-col h-screen">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
@@ -26,11 +26,20 @@
                     </div>
                 </header>
             @endisset
-
+            
+            <!-- Navegacion lateral funcionalidades-->
+            <div class="flex flex-1">
+                {{-- Mostrar barra lateral según el rol --}}
+                @if (Auth::user()->role == 'taller')
+                    @include('layouts.navigation-taller')
+                @elseif (Auth::user()->role == 'cliente')
+                    @include('layouts.navigation-cliente')
+                @endif
             <!-- Page Content -->
-            <main>
+               <main class="flex-1 p-6">
                 {{ $slot }}
-            </main>
+               </main>
+            </div>
         </div>
     </body>
 </html>

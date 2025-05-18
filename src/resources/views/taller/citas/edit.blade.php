@@ -57,7 +57,7 @@
                             
                             <!-- Crear cita -->
                             <button type="submit" class="inline-flex items-center px-6 py-2 bg-green-500 text-black font-semibold text-sm rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200 ease-in-out">
-                                Asignar cita
+                                Editar cita
                             </button>
                         </div>
                     </form>

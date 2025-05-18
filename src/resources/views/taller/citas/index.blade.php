@@ -12,7 +12,7 @@
                             <th class="py-3 px-4 text-left">Marca</th>
                             <th class="py-3 px-4 text-left">Modelo</th>
                             <th class="py-3 px-4 text-left">Matrícula</th>
-                            <th class="py-3 px-4 text-left">Cliente</th>
+                            <th class="py-3 px-4 text-left">Usuario</th>
                             <th class="py-3 px-4 text-left">Fecha</th>
                             <th class="py-3 px-4 text-left">Hora</th>
                             <th class="py-3 px-4 text-left">Duración estimada</th>
@@ -26,7 +26,9 @@
                                 <td class="py-3 px-4">{{ $cita->marca }}</td>
                                 <td class="py-3 px-4">{{ $cita->modelo }}</td>
                                 <td class="py-3 px-4">{{ $cita->matricula }}</td>
-                                <td class="py-3 px-4">{{ $cita->cliente->name ?? 'N/A' }}</td>
+                                <td class="py-3 px-4">
+                                    {{ $cita->user->name ?? 'N/A' }}
+                                </td>
                                 <td class="py-3 px-4">{{ $cita->fecha ?? 'Sin asignar' }}</td>
                                 <td class="py-3 px-4">{{ $cita->hora ?? 'Sin asignar' }}</td>
                                 <td class="py-3 px-4">{{ $cita->duracion_estimada ?? 'Sin estimar' }}</td>
@@ -39,10 +41,15 @@
                                 </td>
                                 <td class="py-3 px-4">
                                     <a href="{{ route('taller.citas.edit', $cita->id) }}" class="text-blue-600 hover:text-blue-900 mr-2">
-                                        <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-xs">
+                                        <button class="btn btn-sm btn-outline-sucess">
                                             @if(!isset($cita->hora) || !isset($cita->fecha))
                                                 Asignar
+                                        </button>
+                                    </a>
+                                            
                                             @else
+                                    <a href="{{ route('taller.citas.edit', $cita->id) }}" class="text-blue-600 hover:text-blue-900 mr-2">
+                                        <button class="btn btn-sm btn-outline-sucess">
                                                 Editar
                                             @endif
                                         </button>
@@ -51,7 +58,7 @@
                                     <form action="{{ route('taller.citas.destroy', $cita->id) }}" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs" 
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" 
                                                 onclick="return confirm('¿Está seguro que desea eliminar esta cita?')">
                                             Eliminar
                                         </button>

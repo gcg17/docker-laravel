@@ -13,7 +13,7 @@ class CitaController extends Controller
 {
 public function index()
 {
-    $citas = Cita::paginate(10);
+    $citas = Cita::with('user')->paginate(10);
     return view('taller.citas.index', compact('citas'));
 }
 
